@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+        var numbers = [4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3];
+        var mostFrequentNumber = numbers[0];
+        var times = 1;
+        var bestTimes = 1;
+        var result;
+
+        for (var i = 0; i < numbers.length; i++) {
+            for (var j = i + 1; j < numbers.length; j++) {
+                if (numbers[i] === numbers[j]) {
+                    times++;
+                }
+                if (times > bestTimes) {
+                    bestTimes = times;
+                    mostFrequentNumber = numbers[i];
+                }
+            }
+            times = 1;
+        }
+
+        document.getElementById('result').innerHTML = mostFrequentNumber + '(' + bestTimes + ' times)';
+        console.log(mostFrequentNumber + '(' + bestTimes + ' times)');
+    </script>
+</body>
+</html>

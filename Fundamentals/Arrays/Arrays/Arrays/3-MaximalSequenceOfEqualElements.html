@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+        var numbers = [2, 1, 1, 2, 3, 3, 2, 2, 2, 1];
+        var bestLength = 0;
+        var bestNumber;
+        var currentLength = 0;
+        var result = "";
+
+        for (var i = 0; i < numbers.length - 1; i++) {
+            var currentNumber = numbers[i];
+
+            if (currentNumber === numbers[i + 1]) {
+                currentLength++;
+            }
+            else {
+                currentLength = 0;
+            }
+
+            if (currentLength > bestLength) {
+                bestLength = currentLength;
+                bestNumber = currentNumber;
+            }
+        }
+
+        for (var i = 0; i <= bestLength; i++) {
+            if (i === bestLength) {
+                result += bestNumber;
+            }
+            else {
+                result += bestNumber + ', ';
+            }
+        }
+
+        document.getElementById('result').innerHTML = result;
+        console.log(result);
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+        var obj  = [5, 4, 1];
+        var hasProp = hasProperty(obj, "length");
+
+        function hasProperty(obj, property) {
+            if (obj.hasOwnProperty(property)) {
+                return true;
+            }
+            if (property in obj) {
+                return true;
+            }
+            return false;
+        }
+
+        document.getElementById('result').innerHTML = 'The object has give property -> ' + hasProp;
+        console.log('The object has give property -> ' + hasProp);
+    </script>
+</body>
+</html>

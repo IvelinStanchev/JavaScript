@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        extractEmails();
+
+        function extractEmails() {
+            var text = "How are you mister Pesho! My email address is writetoit@gmail.com and probably yours is pesho@gmail.com and is not pesho2@.com";
+            var reversedEmail = '';
+            var realEmail = '';
+            for (var i = 0; i < text.length; i++) {
+                var counter = i;
+
+                if (text[counter] == '@') {
+                    while ((text[counter] != ' ') && (text[counter] != ',') &&
+                            (text[counter] != '?') && (text[counter] != '!') &&
+                            (text[i] != '[') && (text[counter] != ']') &&
+                            (text[counter] != '{') && (text[counter] != '}') &&
+                            (text[counter] != '+') && (text[counter] != '*') &&
+                            (text[counter] != '=') && (text[counter] != '-')) {
+                        reversedEmail += text[counter];
+                        counter--;
+                    }
+
+                    for (var j = reversedEmail.length - 1; j >= 0; j--) {
+                        realEmail += reversedEmail[j];
+                    }
+
+                    counter = i + 1;
+
+                    while ((text[counter] != ' ') && (text[counter] != ',') &&
+                            (text[counter] != '?') && (text[counter] != '!') &&
+                            (text[i] != '[') && (text[counter] != ']') &&
+                            (text[counter] != '{') && (text[counter] != '}') &&
+                            (text[counter] != '+') && (text[counter] != '*') &&
+                            (text[counter] != '=') && (text[counter] != '.')) {
+                        realEmail += text[counter];
+                        counter++;
+                    }
+
+                    realEmail += '.';
+                    counter++;
+
+                    while ((text[counter] != ' ') && (text[counter] != ',') &&
+                            (text[counter] != '?') && (text[counter] != '!') &&
+                            (text[i] != '[') && (text[counter] != ']') &&
+                            (text[counter] != '{') && (text[counter] != '}') &&
+                            (text[counter] != '+') && (text[counter] != '*') &&
+                            (text[counter] != '=') && (text[counter] != '.')) {
+                        realEmail += text[counter];
+                        counter++;
+                    }
+
+                    document.write(realEmail + '<br>');
+                    console.log(realEmail);
+                    reversedEmail = '';
+                    realEmail = '';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

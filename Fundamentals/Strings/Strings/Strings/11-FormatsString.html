@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function formatString(value, argument0, argument01, argument02) {
+            var result = value;
+
+            for (var i = 0, len = arguments.length; i < len - 1; i++) {
+                var pattern = "\\{" + i + "\\}";
+                var regex = new RegExp(pattern, "g");
+
+                result = result.replace(regex, arguments[i + 1]);
+            }
+
+            return result;
+        }
+
+        (function () {
+            var format = "{0}, {1}, {0} text {2}, {3} and {1}";
+            var formattedString = formatString(format, 53, "Pesho", "Gosho", "Kiro", "Kirov");
+
+            document.write(formattedString);
+            console.log(formattedString);
+        })();
+    </script>
+</body>
+</html>

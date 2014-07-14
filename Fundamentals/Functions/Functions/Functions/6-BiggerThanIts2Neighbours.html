@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <span>Enter a position</span><input type="number" id="input" />
+    <button onclick="check()">Check if the element on the entered position is bigger than its two neighbours</button>
+    <div id="result"></div>
+
+    <script>
+        function checkIfBigger(array, position) {
+            var index = 0;
+            var arrayOfNumbers = array;
+
+            for (var i = position - 1; i < arrayOfNumbers.length; i++) {
+
+                if ((array[i] > array[i - 1]) && (array[i] > array[i + 1])) {
+                    index = i;
+                    break;
+                }
+            }
+            
+            return index;
+        }
+
+        function check() {
+            var array = [5, 1, 2, 5, 5, 1, 15, 17, 2];
+            var position = parseInt(document.getElementById('input').value);
+
+            if (position === (checkIfBigger(array, position) + 1)) {
+                document.getElementById('result').innerHTML += 'The element at position ' + position + ' is bigger than its two neighbours' + '<br>';
+                console.log('The element at position ' + position + ' is bigger than its two neighbours');
+            }
+            else {
+                document.getElementById('result').innerHTML += 'The element at position ' + position + ' is not bigger than its two neighbours' + '<br>';
+                console.log('The element at position ' + position + ' is not bigger than its two neighbours');
+            }
+        }
+    </script>
+</body>
+</html>

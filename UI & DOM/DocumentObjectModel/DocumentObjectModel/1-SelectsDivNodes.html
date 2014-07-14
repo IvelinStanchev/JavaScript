@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        div#resultQuerySelector {
+            position: absolute;
+            margin-left: 400px;
+            margin-top: -260px;
+        }
+        div#resultTagName {
+            position: absolute;
+            margin-left: 680px;
+            margin-top: -260px;
+        }
+    </style>
+</head>
+<body>
+    <div id="firstDiv">
+        <div>
+            1.-First div element
+            <div>1.1-First nested div element</div>
+            <div>1.2-Second nested div element</div>
+            <div>1.3-Third nested div element</div>
+        </div>
+        <div>
+            2.-Second div element
+            <div>2.1-First nested div element</div>
+            <div>2.2-Second nested div element</div>
+            <div>2.3-Third nested div element</div>
+        </div>
+        <div>
+            3.-Third div element
+            <div>3.1-First nested div element</div>
+            <div>3.2-Second nested div element</div>
+            <div>3.3-Third nested div element</div>
+        </div>
+    </div>
+    <div id="resultQuerySelector">
+    </div>
+    <div id="resultTagName">
+    </div>
+    <script>
+        function getDirectDivsUsingQuerySelector() {
+            var divs = document.querySelectorAll('#firstDiv div');
+            var resultQuery = document.getElementById('resultQuerySelector');
+
+            for (var i = 0, len = divs.length; i < len; i++) {
+                resultQuery.innerHTML += '<br>' + divs[i].firstChild.textContent;
+                console.log(divs[i].firstChild.textContent);
+            }
+        }
+
+        function getDirectDivsUsingTagName() {
+            var resultTagName = document.getElementById('resultTagName');
+            var firstDiv = document.getElementById("firstDiv");
+            var allDirectDivs = firstDiv.getElementsByTagName("div");
+
+            for (i = 0, len = allDirectDivs.length; i < len; i++) {
+                if (allDirectDivs[i].parentElement === firstDiv) {
+                    resultTagName.innerHTML += '<br>' + allDirectDivs[i].textContent;
+                    console.log(allDirectDivs[i].textContent);
+                }
+            };
+        }
+        
+        console.log('Using query selector:');
+        getDirectDivsUsingQuerySelector();
+        console.log('------------------------------');
+        console.log('Using tag name:');
+        getDirectDivsUsingTagName();
+    </script>
+</body>
+</html>

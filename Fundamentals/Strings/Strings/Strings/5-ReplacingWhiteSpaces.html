@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        var text = ' This is some text! ';
+        var newText = replaceWhiteSpaces(text, '&nbsp');
+
+        document.write('Old text -> ' + text + '<br>');
+        document.write('New text -> ' + newText);
+        console.log('Old text -> ' + text);
+        console.log('New text -> ' + newText);
+
+        function replaceWhiteSpaces(text, symbol) {
+            var result = '';
+
+            for (var i = 0; i < text.length; i++) {
+                if (text[i] == ' '){
+                    result += symbol;
+                }
+                else {
+                    result += text[i];
+                }
+            }
+
+            return result;
+        }
+    </script>
+</body>
+</html>

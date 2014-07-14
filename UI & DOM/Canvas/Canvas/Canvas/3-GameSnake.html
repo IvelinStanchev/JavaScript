@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="scripts/3-GameSnake.js"></script>
+    <style>
+        canvas {
+            background-color: #FFFBA4;
+            border: 1px solid black;
+        }
+
+        div#result {
+            color: #F00;
+            margin-top: -250px;
+            margin-left: 400px;
+            position: absolute;
+        }
+
+        button#game {
+            color: #F00;
+            position: absolute;
+        }
+
+        div#each-score {
+            color: #808080;
+            font-size: 20px;
+            margin-top: -407px;
+            margin-left: 1050px;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="snake" width="900" height="400"></canvas>
+    <button id="game" onclick="newGame()">Start Game!</button>
+    <div id="result"></div>
+    <div id="each-score">Scores: </div>
+</body>
+</html>

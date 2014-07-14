@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+        var numbers = [5, 12, 5, 21, 15, 151, 12, 23, 1];
+        var swap;
+
+        for (var i = 0; i < numbers.length; i++) {
+            for (var j = i + 1; j < numbers.length; j++) {
+                if (numbers[j] < numbers[i]) {
+                    swap = numbers[j];
+                    numbers[j] = numbers[i];
+                    numbers[i] = swap;
+                }
+            }
+        }
+
+        document.getElementById('result').innerHTML = numbers;
+        console.log(numbers);
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+        var persons = [
+                          { firstname: "Gosho", lastname: "Petrov", age: 32 },
+                          { firstname: "Bay", lastname: "Bayov", age: 81 },
+                          { firstname: "Kiro", lastname: "Kirov", age: 19 },
+                          { firstname: "Pesho", lastname: "Peshov", age: 21 },
+                          { firstname: "Petio", lastname: "Petiov", age: 35 },
+                          { firstname: "Petia", lastname: "Petiaeva", age: 20 }
+        ];
+
+        var minAge = persons[0].age;
+        var minIndex = 0;
+
+        for (var i = 1; i < persons.length; i++) {
+            if (persons[i].age < minAge) {
+                minAge = persons[i].age;
+                minIndex = i;
+            }
+        }
+
+        document.getElementById('result').innerHTML = persons[minIndex].firstname + ' ' + persons[minIndex].lastname;
+        console.log(persons[minIndex].firstname + ' ' + persons[minIndex].lastname);
+    </script>
+</body>
+</html>

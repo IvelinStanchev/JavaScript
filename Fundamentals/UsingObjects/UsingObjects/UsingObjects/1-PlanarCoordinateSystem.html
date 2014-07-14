@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+        function buildPoint(x, y) {
+            return {
+                x: x,
+                y: y,
+                toString: function () { return this.x + " " + this.y; }
+            }
+        }
+
+        var firstPoint = buildPoint(1, 4);
+        var secondPoint = buildPoint(2, 3);
+        var thirdPoint = buildPoint(2, 4);
+        var fourthPoint = buildPoint(3, 2);
+        var fifthPoint = buildPoint(2, 3);
+        var sixthPoint = buildPoint(0, 5);
+        
+        var firstLine = calculateDinstance(firstPoint, secondPoint);
+        var secondLine = calculateDinstance(thirdPoint, fourthPoint);
+        var thirdLine = calculateDinstance(fifthPoint, sixthPoint);
+
+        function calculateDinstance(firstPoint, secondPoint) {
+            var distance;
+            distance = Math.sqrt(((secondPoint.x - firstPoint.x) * (secondPoint.x - firstPoint.x)) +
+                                    ((secondPoint.y - firstPoint.y) * (secondPoint.y - firstPoint.y)));
+            return distance;
+        }
+
+        document.getElementById('result').innerHTML += 'Distance of first line -> ' + firstLine + '<br>';
+        console.log('Distance of first line -> ' + firstLine);
+        document.getElementById('result').innerHTML += 'Distance of second line -> ' + secondLine + '<br>';
+        console.log('Distance of second line -> ' + secondLine);
+        document.getElementById('result').innerHTML += 'Distance of third line -> ' + thirdLine + '<br>';
+        console.log('Distance of third line -> ' + thirdLine);
+
+        function checkIfLinesCanFormTriangle(a, b, c) {
+            if ((a < (b + c)) && (b < (a + c)) && (c < (a + b))) {
+                return true;
+            }
+            return false;
+        }
+
+        var canFormATriangle = checkIfLinesCanFormTriangle(firstLine, secondLine, thirdLine);
+        document.getElementById('result').innerHTML += 'Can be formed a triangle -> ' + canFormATriangle + '<br>';
+        console.log('Can be formed a triangle -> ' + canFormATriangle);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        var url = 'http://www.devbg.org/forum/index.php ';
+        var protocol = '';
+        var server = '';
+        var resource = '';
+        var length = url.length;
+        var protocolEnded;
+        var extractedElements = extractsElements(url, protocol, server, resource, protocolEnded);
+
+        document.write(extractedElements.toString());
+        console.log(extractedElements.toString());
+
+        function extractsElements(url, protocol, server, resource, protocolEnded){
+            for (var i = 0; i < length; i++) {
+                if (url[i] == ':') {
+                    protocolEnded = true;
+                    i += 3;
+                }
+                if (!protocolEnded) {
+                    protocol += url[i];
+                }
+                if (protocolEnded) {
+                    while (url[i] != '/'){
+                        server += url[i];
+                        i++;
+                    }
+                    while (i < length) {
+                        resource += url[i];
+                        i++;
+                    }
+                    var extracted = extractElement(protocol, server, resource);
+                    return extracted;
+                }
+            }
+        }
+
+        function extractElement(protocol, server, resource) {
+            return {
+                protocol: protocol,
+                server: server,
+                resource: resource,
+                toString: function () {
+                    return 'Protocol -> ' + this.protocol + '<br>' +
+                           'Server -> ' + this.server + '<br>' +
+                           'Resource -> ' + this.resource;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

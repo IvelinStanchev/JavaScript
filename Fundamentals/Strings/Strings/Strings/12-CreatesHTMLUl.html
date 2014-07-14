@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div data-type="template" id="list-item">
+        <strong>-{name}-</strong> <span>-{age}-</span>
+    </div>
+    <button onclick ="onButtonClick()">Create!</button>
+    <div id="result"></div>
+
+    <script>
+        function onButtonClick() {
+            var people = [
+                { name: "Pesho", age: 24 },
+                { name: "Kiro", age: 20 },
+                { name: "Gosho", age: 21 },
+            ];
+            var template = document.getElementById("list-item").innerHTML.valueOf();
+            var peopleList = generateList(people, template);
+            document.getElementById('result').innerHTML = peopleList;
+            console.log(peopleList);
+        }
+
+        function generateList(people, template) {
+            var i;
+            var list = '<ul>';
+            for (i = 0; i < people.length; i++) {
+                list += '<li>';
+                list += template.replace('-{name}-', people[i]['name']);
+                list = list.replace('-{age}-', people[i]['age']);
+                list += "</li>";
+            }
+
+            list += "</ul>";
+            return list;
+        }
+    </script>
+</body>
+</html>

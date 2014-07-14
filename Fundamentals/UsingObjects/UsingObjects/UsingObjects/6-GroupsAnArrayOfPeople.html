@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+        function Person(firstName, lastName, age) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.toString = function () {
+                return this.firstName + ' ' +  this.lastName + ' -> ' +  this.age + ' years old';
+            }
+        }
+
+        function group(people, prop) {
+            switch (prop) {
+                case "firstName":
+                case "lastName":
+                case "age":
+                    {
+                        var groups = {};
+
+                        people.map(function (p) {
+                            if (!groups[p[prop]])
+                                groups[p[prop]] = new Array();
+                            groups[p[prop]].push(p);
+                        });
+
+                        return groups;
+                    }
+                default:
+                    throw new Error("No such property in Person.");
+            }
+        }
+
+        (function () {
+
+            var people = [];
+
+            people.push(new Person("Scott", "Guthrie", 38));
+            people.push(new Person("Scott", "Hanselman", 39));
+            people.push(new Person("Jesse", "Liberty", 57));
+            people.push(new Person("Jon", "Skeet", 36));
+            people.push(new Person("Anders", "Hejlsberg", 52));
+            people.push(new Person("Bjarne", "Stroustrup", 62));
+            people.push(new Person("Erik", "Meijer", 49));
+            people.push(new Person("Adam", "Nathan", 42));
+            people.push(new Person("Jeffrey", "Richter", 52));
+            people.push(new Person("Charles", "Petzold", 60));
+            people.push(new Person("Jon", "Galloway", 42));
+            people.push(new Person("Adam", "Freeman", 42));
+            people.push(new Person("Scott", "Mitchell", 34));
+
+            var groups = group(people, "firstName");
+
+            for (var index in groups) {
+                document.getElementById('result').innerHTML += groups[index].toString() + '<br>';
+                console.log(groups[index].toString());
+            }
+        })();
+    </script>
+</body>
+</html>

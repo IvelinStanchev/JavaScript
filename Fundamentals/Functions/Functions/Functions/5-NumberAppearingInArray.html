@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <input type="number" id="input"/>
+    <button onclick="testFunction()">Check how many times the number appears in an array!</button>
+    <div id="result"></div>
+
+    <script>
+        function checkAppearenceOfNumber(array) {
+            var numbers = array;
+            var searchingNumber = parseInt(document.getElementById('input').value);
+            var counter = 0;
+
+            for (var i = 0; i < numbers.length; i++) {
+                if (numbers[i] === searchingNumber) {
+                    counter++;
+                }
+            }
+
+            document.getElementById('result').innerHTML += array + ' -> ' + searchingNumber + ' appeared ' + counter + ' times' + '<br>';
+            console.log(searchingNumber + ' appeared ' + counter + ' times');
+        }
+
+        function testFunction() {
+            var generatedArray = [];
+
+            //I use Math.random() to generate random values for the array
+            for (var i = 0; i < 5; i++) {
+                for (var j = 0; j < 10; j++) {
+                    generatedArray.push(Math.floor(Math.random() * 20));
+                }
+                checkAppearenceOfNumber(generatedArray);
+                generatedArray = new Array;
+            }
+        }
+    </script>
+</body>
+</html>

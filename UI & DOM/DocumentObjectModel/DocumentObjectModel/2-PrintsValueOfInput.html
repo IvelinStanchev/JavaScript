@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <input type="text" />
+    <button onclick="getValueOfInput()">Get the input!</button>
+    <div id="result"></div>
+    <script>
+        function getValueOfInput() {
+            var input = document.getElementsByTagName('input')[0].value;
+            var result = document.getElementById('result');
+
+            result.innerHTML = input;
+            console.log(input);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        var text = 'We are <mixcase>living</mixcase> in a <upcase>yellow <lowcase>anything</lowcase> submarine</upcase>. We <mixcase>don\'t</mixcase> have <lowcase>anything</lowcase> else.';
+        text = text.replace(/<mixcase>/g, '◘');
+        text = text.replace(/<\/mixcase>/g, '◘');
+        text = text.replace(/<upcase>/g, 'Θ');
+        text = text.replace(/<\/upcase>/g, 'Θ');
+        text = text.replace(/<lowcase>/g, '¢');
+        text = text.replace(/<\/lowcase>/g, '¢');
+        
+        var finalText = "";
+
+        for (var i = 0; i < text.length; i++) {
+            if (text[i] == 'Θ') {
+                i++;
+                while (text[i] != 'Θ') {
+                    if (text[i] == '¢') {
+                        i++;
+                        while (text[i] != '¢') {
+                            finalText += text[i].toLowerCase();
+                            i++;
+                        }
+                        i++;
+                    }
+                    else if (text[i] == '◘') {
+                        i++;
+                        while (text[i] != '◘') {
+                            if (Math.floor(Math.random() * 2) == 0) {
+                                finalText += text[i].toLowerCase();
+                            }
+                            else {
+                                finalText += text[i].toUpperCase();
+                            }
+                            i++;
+                        }
+                    }
+                    finalText += text[i].toUpperCase();
+                    i++;
+                }
+            }
+            else if (text[i] == '¢') {
+                i++;
+                while (text[i] != '¢') {
+                    if (text[i] == 'Θ') {
+                        i++;
+                        while (text[i] != 'Θ') {
+                            finalText += text[i].toUpperCase();
+                            i++;
+                        }
+                        i++;
+                    }
+                    else if (text[i] == '◘') {
+                        i++;
+                        while (text[i] != '◘') {
+                            if (Math.floor(Math.random() * 2) == 0) {
+                                finalText += text[i].toLowerCase();
+                            }
+                            else {
+                                finalText += text[i].toUpperCase();
+                            }
+                            i++;
+                        }
+                    }
+                    finalText += text[i].toLowerCase();
+                    i++;
+                }
+            }
+            else if (text[i] == '◘') {
+                i++;
+                while (text[i] != '◘') {
+                    if (text[i] == 'Θ') {
+                        i++;
+                        while (text[i] != 'Θ') {
+                            finalText += text[i].toUpperCase();
+                            i++;
+                        }
+                        i++;
+                    }
+                    else if (text[i] == '¢') {
+                        i++;
+                        while (text[i] != '¢') {
+                            finalText += text[i].toLowerCase();
+                            i++;
+                        }
+                        i++;
+                    }
+                    else {
+                        if (Math.floor(Math.random() * 2) == 0) {
+                            finalText += text[i].toLowerCase();
+                        }
+                        else {
+                            finalText += text[i].toUpperCase();
+                        }
+                        i++;
+                    }
+                }
+            }
+            else {
+                finalText += text[i];
+            }
+        }
+
+        console.log(finalText);
+    </script>
+</body>
+</html>

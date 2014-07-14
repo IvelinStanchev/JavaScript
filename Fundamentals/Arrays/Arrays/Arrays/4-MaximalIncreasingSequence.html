@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+        var numbers = [3, 2, 3, 4, 2, 2, 4];
+
+        var lastNumber;
+        var currentLength = 1;
+        var maxLength = 1;
+        var firstNumber;
+        var result = "";
+
+        for (var i = 0; i < numbers.length - 1; i++) {
+            if (numbers[i] === numbers[i + 1] - 1) {
+                currentLength++;
+                if (currentLength > maxLength) {
+                    maxLength = currentLength;
+                    lastNumber = numbers[i];
+                }
+            }
+            else {
+                currentLength = 1;
+            }
+        }
+
+        firstNumber = lastNumber - maxLength + 2;
+
+        for (var i = 0; i < maxLength; i++) {
+            if (i === maxLength - 1) {
+                result += firstNumber;
+            }
+            else {
+                result += firstNumber + ', ';
+            }
+            firstNumber++;
+        }
+
+        document.getElementById('result').innerHTML = result;
+        console.log(result);
+    </script>
+</body>
+</html>

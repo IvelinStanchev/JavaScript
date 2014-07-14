@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+        var array = [1, 4, 8, 10, 12, 14, 18, 25];
+        var neededNumber = 8;
+
+        var indexMin = 0;
+        var indexMax = array.length - 1;
+        var indexMiddle = ((indexMin + indexMax) / 2) | 0;
+        var indexOfNeededNumber = 0;
+        var flag = false;
+
+        while (true) {
+            if (indexMiddle >= array.length - 1) {//If the number isn't in the array I go out of the cycle
+                break;
+            }
+            if (array[indexMiddle] === neededNumber) {//If the number is found I go out of the cycle
+                indexOfNeededNumber = indexMiddle;
+                flag = true;
+                break;
+            }
+
+            if (array[indexMiddle] > neededNumber) {
+                indexMiddle--;
+                indexMax = indexMiddle;
+                indexMiddle = ((indexMin + indexMax) / 2) | 0;
+            }
+            else {
+                indexMiddle++;
+                indexMin = indexMiddle;
+                indexMiddle = ((indexMin + indexMax) / 2) | 0;
+            }
+        }
+
+        if (flag == false) {
+            document.getElementById('result').innerHTML = 'The needed number is not in the array';
+            console.log('The needed number is not in the array');
+        }
+        else {
+            document.getElementById('result').innerHTML = 'The index of needed number is: ' + indexOfNeededNumber;
+            console.log('The index of needed number is: ' + indexOfNeededNumber);
+        }
+    </script>
+</body>
+</html>

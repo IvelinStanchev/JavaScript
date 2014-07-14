@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="smallest"></div>
+    <div id="biggest"></div>
+
+    <script>
+        findSmallest(window);
+        findBiggest(window);
+        findSmallest(navigator);
+        findBiggest(navigator);
+        findSmallest(document);
+        findBiggest(document);
+
+        function findSmallest(object) {
+            var smallest = 'zzz';
+            for (var property in object) {
+                if (property < smallest) {
+                    smallest = property;
+                }
+            }
+            document.getElementById('smallest').innerHTML += 'The smallest property in ' + object + ' is ' + smallest + '<br>';
+            console.log('The smallest property in ' + object + ' is ' + smallest + '<br>');
+        }
+
+        function findBiggest(object) {
+            var biggest = 'aaa';
+            for (var property in object) {
+                if (property > biggest) {
+                    biggest = property;
+                }
+            }
+            document.getElementById('biggest').innerHTML += 'The biggest property in ' + object + ' is ' + biggest + '<br>';
+            console.log('The biggest property in ' + object + ' is ' + biggest + '<br>');
+        }
+    </script>
+</body>
+</html>

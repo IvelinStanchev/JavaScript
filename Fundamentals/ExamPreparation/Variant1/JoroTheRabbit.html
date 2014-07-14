@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script>
+        function Solve(args) {
+            var firstInputRow = args[0].split(' ');
+            var secondInputRow = args[1].split(' ');
+            var N = parseInt(firstInputRow[0]);
+            var M = parseInt(firstInputRow[1]);
+            var J = parseInt(firstInputRow[2]);
+            var R = parseInt(secondInputRow[0]);
+            var C = parseInt(secondInputRow[1]);
+
+            var playGround;
+            var counter = 0;
+
+            var playGround = [];
+            for (var i = 0; i < N; i++) {
+                playGround[i] = [];
+            }
+
+            var visited = [];
+            for (var i = 0; i < N; i++) {
+                visited[i] = [];
+            }
+
+            //Making a matrix
+            for (var i = 0; i < N; i++) {
+                for (var j = 0; j < M; j++) {
+                    counter++;
+                    playGround[i][j] = counter;
+                }
+            }
+
+            for (var i = 0; i < N; i++) {
+                for (var j = 0; j < M; j++) {
+                    visited[i][j] = false;
+                }
+            }
+            //
+            var sum = playGround[R][C];
+            visited[R][C] = true;
+            var lastRow = R;
+            var lastCol = C;
+            var numberOfJumps = 1;
+
+            for (var i = 2; i < J + 2; i++) {
+                var parsedRowAndCol = args[i].split(' ');
+                
+                var currentRow = parseInt(parsedRowAndCol[0]);
+                var currentCol = parseInt(parsedRowAndCol[1]);
+
+                var nextMoveRow = lastRow + currentRow;
+                var nextMoveCol = lastCol + currentCol;
+
+                if (((nextMoveRow >= N) || (nextMoveCol >= M)) || ((nextMoveRow < 0) || (nextMoveCol < 0))) {
+                    return 'escaped ' + sum;
+                }
+                else if (visited[nextMoveRow][nextMoveCol]) {
+                    return 'caught ' + numberOfJumps;
+                }
+                else{
+                    sum += playGround[nextMoveRow][nextMoveCol];
+                    numberOfJumps++;
+                }
+
+                if (i === J + 1) {
+                    i = 1;
+                }
+
+                visited[nextMoveRow][nextMoveCol] = true;
+
+                lastRow = nextMoveRow;
+                lastCol = nextMoveCol;
+            }
+
+            return ' ';
+        }
+
+        function takeIO() {
+            var input = ['500 500 1', '0 0', '-1 1'];
+
+            console.log(Solve(input));
+        }
+    </script>
+</head>
+<body onload="takeIO()">
+
+</body>
+</html>

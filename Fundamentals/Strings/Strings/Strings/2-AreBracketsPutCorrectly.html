@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        var expression = '((a+b)/5-d)';
+        //var expression = ')(a+b))';
+
+        var isCorrect = true;
+        var leftBrackets = 0;
+        var rightBrackets = 0;
+
+        if (expression[0] == ')'){
+            isCorrect = false;
+        }
+        else{
+            for (var i = 0; i < expression.Length; i++){
+                if (expression[i] == '('){
+                    leftBrackets++;
+                }
+                if (expression[i] == ')'){
+                    rightBrackets++;
+                }
+            }
+        }
+
+        if (leftBrackets != rightBrackets){
+            isCorrect = false;
+        }
+
+        if (isCorrect){
+            document.write('The expression is correct!');
+            console.log('The expression is correct!');
+        }
+        else{
+            document.write('The expression is not correct!');
+            console.log('The expression is not correct!');
+        }
+    </script>
+</body>
+</html>

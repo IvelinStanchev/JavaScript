@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+        var firstArray = ['a', 'c', 'd', 'g', 'o'];
+        var secondArray = ['a', 'c', 'd', 'g', 'o'];
+        var result;
+        var counter = 0;
+        var firstMaxLength = firstArray.length;
+        var secondMaxLegth = secondArray.length;
+
+        if (firstMaxLength > secondMaxLegth) {
+            document.getElementById('result').innerHTML = 'The first array is bigger';
+            console.log('The first array is bigger');
+        }
+        else if (firstMaxLength < secondMaxLegth) {
+            document.getElementById('result').innerHTML = 'The second array is bigger';
+            console.log('The second array is bigger');
+        }
+        else {
+            for (var i = 0; i < firstMaxLength; i++) {
+                if (firstArray[i] > secondArray[i]) {
+                    result = 'The first array is bigger';
+                    break;
+                }
+                if (firstArray[i] < secondArray[i]) {
+                    result = 'The second array is bigger';
+                    break;
+                }
+                if (firstArray[i] == secondArray[i]) {
+                    counter++;
+                }
+            }
+
+            if (counter === firstMaxLength) {
+                result = 'The two arrays are equal';
+            }
+
+            document.getElementById('result').innerHTML = result;
+            console.log(result);
+        }
+    </script>
+</body>
+</html>

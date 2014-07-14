@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function Solve(params) {
+            var N = parseInt(params[0]);
+            var maxSum = -2000000000;
+
+            for (var i = 1; i < N; i++) {
+                var currentSum = parseInt(params[i]);
+                for (var j = i + 1; j <= N + 1; j++) {
+                    if (currentSum > maxSum) {
+                        maxSum = currentSum;
+                    }
+                    currentSum += parseInt(params[j]);
+                }
+            }
+
+            return maxSum;
+        }
+
+        function takeIO() {
+            var input = [8, 1, 6, -9, 4, 4, -2, 10, -1];
+
+            console.log(Solve(input));
+        }
+    </script>
+</head>
+<body onload="takeIO()">
+
+</body>
+</html>

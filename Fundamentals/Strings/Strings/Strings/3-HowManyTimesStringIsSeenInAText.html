@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        var text = 'We are living in an yellow submarine. We don\'t have anything else. Inside the submarine is very tight. So we are drinking all the day. We will move out of it in 5 days.';
+        var timesSeen = 0;
+        var searchSubstring = 'in';
+
+        for (var i = 0; i < text.length; i++) {
+            if ((i !== text.length - 1) && ((text[i].toLowerCase() == 'i') && (text[i + 1].toLowerCase() == 'n'))){
+                timesSeen++;
+            }
+        }
+
+        document.write('The result is: ' + timesSeen);
+        console.log('The result is: ' + timesSeen);
+    </script>
+</body>
+</html>

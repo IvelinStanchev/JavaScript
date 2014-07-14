@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script>
+        function Solve(params) {
+            var N = parseInt(params[0]);
+            var answer = 1;
+
+            for (var i = 1; i < N; i++) {
+                if (parseInt(params[i]) > parseInt(params[i + 1])) {
+                    answer++;
+                }
+            }
+
+            return answer;
+        }
+
+        function takeIO(){
+            var input = [9, 1, 8, 8, 7, 6, 5, 7, 7, 6];
+
+            console.log(Solve(input));
+        }
+    </script>
+</head>
+<body onload="takeIO()">
+
+</body>
+</html>

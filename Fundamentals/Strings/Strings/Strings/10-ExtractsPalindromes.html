@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        var text = 'Hey pesho do you listen ABBA ?. If not you are akamaka and can\'t install the exe';
+        var splitedText = text.split(' ');
+        for (var i = 0; i < splitedText.length; i++) {
+            var checkIfIsPalindrome = isPalindrome(splitedText[i]);
+            if (checkIfIsPalindrome) {
+                document.write(splitedText[i] + '<br>');
+                console.log(splitedText[i]);
+            }
+        }
+
+        function isPalindrome(splitedText) {
+            var isPalindrome = false;
+            var symbols = splitedText;
+            var length = (symbols.length / 2) | 0;// I divide the word into two parts
+            var leftSide = '';
+            var rightSide = '';
+
+            for (var i = 0; i < length; i++){
+                leftSide += symbols[i];
+            }
+
+            if (length % 2 == 0) {
+                for (var i = symbols.length - 1; i >= length; i--) {
+                    rightSide += symbols[i];
+                }
+            }
+            else {
+                for (var i = symbols.length - 1; i > length; i--) {
+                    rightSide += symbols[i];
+                }
+            }
+
+            if (leftSide == rightSide){
+                isPalindrome = true;
+            }
+            else{
+                isPalindrome = false;
+            }
+
+            return isPalindrome;
+        }
+
+    </script>
+</body>
+</html>

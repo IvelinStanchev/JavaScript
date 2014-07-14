@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        var pageAsString = '<html><head><title>Sample site</title></head><body><div>text<div>more text</div>and more...</div>in body</body></html>';
+        var contentWithoutTags = extractTheContent(pageAsString);
+
+        document.write(contentWithoutTags);
+        console.log(contentWithoutTags);
+
+        function extractTheContent(page) {
+            var result = '';
+            page = page.replace(/<html>/g, '▐');
+            page = page.replace(/<\/html>/g, '▐');
+            page = page.replace(/<head>/g, '▐');
+            page = page.replace(/<\/head>/g, '▐');
+            page = page.replace(/<body>/g, '▐');
+            page = page.replace(/<\/body>/g, '▐');
+            page = page.replace(/<div>/g, '▐');
+            page = page.replace(/<\/div>/g, '▐');
+            page = page.replace(/<title>/g, '▐');
+            page = page.replace(/<\/title>/g, '▐');
+            page = page.replace(/<p>/g, '▐');
+            page = page.replace(/<\/p>/g, '▐');
+            page = page.replace(/<article>/g, '▐');
+            page = page.replace(/<\/article>/g, '▐');
+            page = page.replace(/<span>/g, '▐');
+            page = page.replace(/<\/span>/g, '▐');
+            
+            for (var i = 0; i < page.length; i++) {
+                if (page[i] != '▐') {
+                    result += page[i];
+                }
+            }
+
+            return result;
+        }
+    </script>
+</body>
+</html>

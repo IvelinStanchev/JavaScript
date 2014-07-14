@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+        var text = 'We are living in an yellow submarine.In the sky there are no clouds. So we are drinking all the day. We will move out of it in 5 days.';
+        var wordToSearch = ' in ';
+        var isCaseSensitive = false;
+
+        countOccurenceWord(text, wordToSearch);
+        countOccurenceWord(text, wordToSearch, true);
+
+        function countOccurenceWord(text, wordToSearch, isCaseSensitive) {
+            isCaseSensitive = isCaseSensitive || false;
+            var countSearchedWord = 0;
+
+            if (isCaseSensitive === false) {
+                var stringArray = text.split(wordToSearch);
+
+                for (var string in stringArray) {
+                    countSearchedWord++;
+                }
+                print("The count of word '" + wordToSearch + "' (case-insensitive search) is: " + countSearchedWord);
+            }
+            else {
+                var index = text.indexOf(wordToSearch);
+
+                while (index >= 0) {
+                    countSearchedWord++;
+                    index = text.indexOf(wordToSearch, index + 1);
+                }
+                print("The count of word '" + wordToSearch + "' (case-sensitive search) is: " + countSearchedWord);
+            }
+        }
+
+        function print(text) {
+            document.getElementById('result').innerHTML += text + '<br>';
+            console.log(text);
+        }
+    </script>
+</body>
+</html>

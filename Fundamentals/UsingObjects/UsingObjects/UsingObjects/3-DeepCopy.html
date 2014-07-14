@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+        function deepCopy(target, copy) {
+            var copy = copy || {};
+            for (var i in target) {
+                if (typeof target[i] === 'object') {
+                    copy[i] = (target[i].constructor === Array) ? [] : {};
+                    deepCopy(target[i], copy[i]);
+                }
+                else {
+                    copy[i] = target[i];
+                }
+            }
+            return copy;
+        }
+
+        var object = {
+            id: 15,
+            inner: {
+                fieldOne: {
+                    num: 11
+                }
+            }
+        };
+
+        var clone = deepCopy(object);
+        clone.inner.fieldOne.num = 99;
+
+        document.getElementById('result').innerHTML += object.inner.fieldOne.num + '<br>';
+        document.getElementById('result').innerHTML += clone.inner.fieldOne.num + '<br>';
+
+        console.log(object.inner.fieldOne.num);
+        console.log(clone.inner.fieldOne.num);
+    </script>
+</body>
+</html>

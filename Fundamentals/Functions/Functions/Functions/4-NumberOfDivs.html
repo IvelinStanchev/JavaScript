@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div id="result"></div>
+
+    <script>
+        function countingNumberOfDivs() {
+            var count = document.getElementsByTagName('div').length;
+            printCount(count);
+        }
+
+        function printCount(count) {
+            document.getElementById('result').innerHTML = count + ' divs';
+            console.log(count + ' divs');
+        }
+
+        countingNumberOfDivs();
+    </script>
+</body>
+</html>

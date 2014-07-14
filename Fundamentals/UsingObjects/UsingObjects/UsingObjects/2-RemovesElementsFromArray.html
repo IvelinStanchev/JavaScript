@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+        (function () {
+            if (!Array.prototype.remove) {
+                Array.prototype.remove = function (element) {
+                    if (this == null) {
+                        throw new TypeError();
+                    }
+
+                    var size = this.length;
+
+                    for (var i = 0; i < size; i++) {
+                        if (this[i] === element) {
+                            this.splice(i, 1);
+                            size--;
+                            i--;
+                        }
+                    }
+
+                    return this;
+                }
+            }
+        })();
+        
+        var array = [1, 2, 1, 4, 1, 3, 4, 1, 111, 3, 2, 1, "1"];
+
+        document.getElementById('result').innerHTML += array;
+
+        array.remove(1); //arr = [2,4,3,4,111,3,2,"1"];
+        
+        document.getElementById('result').innerHTML += ' -> ' +  array;
+        console.log(array);
+    </script>
+</body>
+</html>

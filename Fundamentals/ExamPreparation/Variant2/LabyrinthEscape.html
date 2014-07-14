@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function Solve(args) {
+            var firstInputRow = args[0].split(' ');
+            var secondInputRow = args[1].split(' ');
+            var N = parseInt(firstInputRow[0]);
+            var M = parseInt(firstInputRow[1]);
+            var R = parseInt(secondInputRow[0]);
+            var C = parseInt(secondInputRow[1]);
+            var counter = 0;
+
+            var fieldWithNumbers = [];
+            for (var i = 0; i < N; i++) {
+                fieldWithNumbers[i] = [];
+            }
+
+            for (var i = 0; i < N; i++) {
+                for (var j = 0; j < M; j++) {
+                    counter++;
+                    fieldWithNumbers[i][j] = counter;
+                }
+            }
+
+            var fieldWithDirections = [];
+            for (var i = 0; i < N; i++) {
+                fieldWithDirections[i] = [];
+            }
+
+            for (var i = 0; i < N; i++) {
+                for (var j = 0; j < M; j++) {
+                    var currentRow = args[i + 2];
+                    fieldWithDirections[i][j] = currentRow[j];
+                }
+            }
+
+            var visited = [];
+            for (var i = 0; i < N; i++) {
+                visited[i] = [];
+            }
+
+            for (var i = 0; i < N; i++) {
+                for (var j = 0; j < M; j++) {
+                    visited[i][j] = false;
+                }
+            }
+
+            var currentRow = R;
+            var currentCol = C;
+            var sum = 0;
+            var numberOfJumps = 0;
+
+            while ((currentCol >= 0 && currentCol < M) && (currentRow >= 0 && currentRow < N)) {
+                
+                sum += fieldWithNumbers[currentRow][currentCol];
+                switch (fieldWithDirections[currentRow][currentCol]) {
+                    case 'l':
+                        visited[currentRow][currentCol] = true;
+                        currentCol--;
+                        numberOfJumps++;
+                        if (visited[currentRow][currentCol]) {
+                            return 'lost ' + numberOfJumps;
+                        }
+                        break;
+                    case 'r':
+                        visited[currentRow][currentCol] = true;
+                        currentCol++;
+                        numberOfJumps++;
+                        if (visited[currentRow][currentCol]) {
+                            return 'lost ' + numberOfJumps;
+                        }
+                        break;
+                    case 'd':
+                        visited[currentRow][currentCol] = true;
+                        currentRow++;
+                        numberOfJumps++;
+                        if (visited[currentRow][currentCol]) {
+                            return 'lost ' + numberOfJumps;
+                        }
+                        break;
+                    case 'u':
+                        visited[currentRow][currentCol] = true;
+                        currentRow--;
+                        numberOfJumps++;
+                        if (visited[currentRow][currentCol]) {
+                            return 'lost ' + numberOfJumps;
+                        }
+                        break;
+                }
+            }
+
+            return 'out ' + sum;
+        }
+
+        function takeIO() {
+            var input = ['2 31', '1 24', 'ullllrrrlluurruluurrdduldddurdl',
+                                         'rululludrluuurrlrllllulduurllrd]'];
+
+            console.log(Solve(input));
+        }
+    </script>
+</head>
+<body onload="takeIO()">
+
+</body>
+</html>

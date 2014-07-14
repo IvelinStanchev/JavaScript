@@ -1,0 +1,27 @@
+﻿.person-item {
+    width: 85px;
+    height: 100%;
+    border: 1px solid black;
+    display: none;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.person-item:hover {
+    background-color: red;
+    opacity: 1;
+}
+
+.person-item.selected {
+    display: block;
+    opacity: 1;
+}
+
+.person-item img {
+    width: 70px;
+    height: 100px;
+}
+
+.person-item.visible {
+    display: block;
+}
