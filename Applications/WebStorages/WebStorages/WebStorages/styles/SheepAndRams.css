@@ -1,0 +1,46 @@
+﻿div#container{
+    border: 3px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    width: 355px;
+    background-color: lightyellow;
+}
+
+div#error {
+    color: red;
+}
+
+div#rams, div#sheep, div#scores {
+    color: blue;
+}
+
+div#result {
+    color: greenyellow;
+}
+
+button#try{
+    color: green;
+    height: 32px;
+}
+
+button#clear-localstorage, button#show-highscores{
+    background-color: darkgreen;
+    border-radius: 10px;
+    border: 3px solid lightgreen;
+    color: lightgreen;
+    width: 175px;
+}
+
+button#new-game{
+    background-color: red;
+    border-radius: 10px;
+    border: 3px solid lightgreen;
+    color: white;
+    margin-left: 135px;
+}
+
+input#input-number{
+    background-color: lightcoral;
+    font-size: 20px;
+    color: white;
+}
