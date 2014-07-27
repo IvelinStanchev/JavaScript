@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>jQuery.Watermark</id>
+    <version>3.1.4</version>
+    <authors>Todd Northrop</authors>
+    <owners>Todd Northrop</owners>
+    <projectUrl>http://jquery-watermark.googlecode.com/</projectUrl>
+    <iconUrl>http://code.google.com/p/jquery-watermark/logo?cct=1292968791</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This simple-to-use jQuery plugin adds watermark capability to HTML input and textarea elements.</description>
+    <summary>This simple-to-use jQuery plugin adds watermark capability to HTML input and textarea elements.
+
+        A watermark typically appears as light gray text within an input or textarea element whenever the element is empty and does not have focus. 
+        This provides a hint to the user as to what the input or textarea element is used for, or the type of input that is required.</summary>
+    <releaseNotes />
+    <copyright>Copyright (c) 2009-2012 Todd Northrop</copyright>
+    <tags>jQuery.Watermark jQuery Watermark</tags>
+    <dependencies>
+      <dependency id="jquery" version="1.2.3" />
+    </dependencies>
+  </metadata>
+</package>
