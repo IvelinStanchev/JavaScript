@@ -61,7 +61,6 @@
     <Content Include="scripts\app.js" />
     <Content Include="scripts\Controllers\Check-controller.js" />
     <Content Include="scripts\Controllers\MainController.js" />
-    <Content Include="scripts\data-persister.js" />
     <Content Include="scripts\http-requester.js" />
     <Content Include="index.html" />
     <None Include="scripts\libs\jquery-2.1.1.intellisense.js" />

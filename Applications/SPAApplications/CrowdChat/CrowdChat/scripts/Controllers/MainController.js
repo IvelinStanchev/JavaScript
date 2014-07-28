@@ -104,7 +104,6 @@
                     $('#input-nickname').val('Enter a valid username');
                     $('#input-nickname').focus();
                 }
-                
             });
 
             $container.on('click', '#send', function () {
